@@ -17,10 +17,10 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include <config.h>
 #include <ClanLib/display.h>
 #include <ClanLib/core.h>
 #include <ClanLib/gl.h>
+
 #include "game_config.hxx"
 #include "resources.hxx"
 #include "input/input_manager.hxx"
@@ -126,7 +126,7 @@ ColorasionMain::parse_args(int argc, char** argv)
 int
 ColorasionMain::main(int argc, char** argv)
 {
-  std::cout << "Starting " << PACKAGE_STRING << std::endl;
+  std::cout << "Starting Colorasion" << std::endl;
 
   try
     {
@@ -143,7 +143,7 @@ ColorasionMain::main(int argc, char** argv)
       init();     
 
       // Create the main window
-      window = new CL_DisplayWindow(PACKAGE_STRING,
+      window = new CL_DisplayWindow("Colorasion",
                                     gamecfg->screen_width, gamecfg->screen_height, 
                                     gamecfg->fullscreen);
       CL_Display::set_current_window (window);

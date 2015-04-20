@@ -19,6 +19,8 @@
 
 #include "colors.hxx"
 
+#include <stdlib.h>
+
 namespace Colors {
 
 CL_Color to_rgb(Color c)
