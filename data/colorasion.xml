@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<resources>
+
+  <sprite name="background">
+    <image file="images/background.jpg" />
+  </sprite>
+
+  <sprite name="diamond_base">
+    <translation origin="center" />
+    <image file="images/diamond_base.png" />
+  </sprite>
+
+  <sprite name="ship_base">
+    <image file="images/ship_base.png" />
+  </sprite>
+
+  <sprite name="ship_right">
+    <image file="images/ship_right.png" />
+  </sprite>
+
+  <sprite name="ship_left">
+    <image file="images/ship_left.png" />
+  </sprite>
+
+
+  <sprite name="ball">
+    <image file="images/ball.png" />
+  </sprite>
+
+  <sprite name="ball_base">
+    <image file="images/ball_base.png" />
+  </sprite>
+
+  <sprite name="ball_effect">
+    <image file="images/ball_effect.png" />
+  </sprite>
+
+
+  <sprite name="ball_highlight">
+    <image file="images/ball_highlight.png" />
+  </sprite>
+
+</resources>
