@@ -1,7 +1,7 @@
 //  $Id: vector2d.cxx,v 1.6 2003/06/09 20:27:31 grumbel Exp $
 //
 //  Feuerkraft - A Tank Battle Game
-//  Copyright (C) 2002 Ingo Ruhnke <grumbel@gmx.de>
+//  Copyright (C) 2002 Ingo Ruhnke <grumbel@gmail.com>
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License

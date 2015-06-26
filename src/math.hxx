@@ -1,7 +1,7 @@
 //  $Id: math.hxx,v 1.7 2003/06/18 13:03:13 grumbel Exp $
 // 
 //  Feuerkraft - A Tank Battle Game
-//  Copyright (C) 2000 Ingo Ruhnke <grumbel@gmx.de>
+//  Copyright (C) 2000 Ingo Ruhnke <grumbel@gmail.com>
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License

@@ -1,7 +1,7 @@
 //  $Id: assert.hxx,v 1.4 2003/06/20 20:54:23 grumbel Exp $
 // 
 //  Pingus - A free Lemmings clone
-//  Copyright (C) 2002 Ingo Ruhnke <grumbel@gmx.de>
+//  Copyright (C) 2002 Ingo Ruhnke <grumbel@gmail.com>
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
