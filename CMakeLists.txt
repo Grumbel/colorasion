@@ -1,5 +1,5 @@
 # Colorasion
-# Copyright (C) 2015 Ingo Ruhnke <grumbel@gmail.com>
+# Copyright (C) 2015-2020 Ingo Ruhnke <grumbel@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,43 +17,37 @@
 cmake_minimum_required(VERSION 3.0)
 project(colorasion VERSION 0.2.0)
 
-set(WARNINGS 0 CACHE BOOL "Switch on extra warnings")
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/external/cmake-modules/)
 
-if(WARNINGS)
-  set(WARNINGS_CXX_FLAGS
-    -pedantic -Wall -Wextra -Wno-c++0x-compat -Wnon-virtual-dtor -Weffc++
-    -Wconversion -Werror -Wshadow -Wcast-qual -Winit-self -Wno-unused-parameter)
-  # -Winline -Wfloat-equal -Wunreachable-code
-endif()
-
-include_directories(src/)
+include(GNUInstallDirs)
+include(MaximumWarnings)
+include(InstallWithWrapper)
+include(ClangTidy)
 
 find_package(Threads REQUIRED)
 find_package(PkgConfig REQUIRED)
-pkg_search_module(GUILE REQUIRED guile-1.8)
-pkg_search_module(CLANCORE REQUIRED clanCore-1.0)
-pkg_search_module(CLANAPP REQUIRED clanApp-1.0)
-pkg_search_module(CLANGL REQUIRED clanGL-1.0)
-pkg_search_module(CLANDISPLAY REQUIRED clanDisplay-1.0)
-pkg_search_module(CLANSOUND REQUIRED clanSound-1.0)
+pkg_search_module(GUILE REQUIRED guile-1.8 IMPORTED_TARGET)
+pkg_search_module(CLANCORE REQUIRED clanCore-1.0 IMPORTED_TARGET)
+pkg_search_module(CLANAPP REQUIRED clanApp-1.0 IMPORTED_TARGET)
+pkg_search_module(CLANGL REQUIRED clanGL-1.0 IMPORTED_TARGET)
+pkg_search_module(CLANDISPLAY REQUIRED clanDisplay-1.0 IMPORTED_TARGET)
+pkg_search_module(CLANSOUND REQUIRED clanSound-1.0 IMPORTED_TARGET)
 
 file(GLOB COLORASION_SOURCES src/*.cxx src/input/*.cxx)
 
 add_executable(colorasion ${COLORASION_SOURCES})
+target_include_directories(colorasion PRIVATE src/)
 target_link_libraries(colorasion PUBLIC
-  ${CLANCORE_LIBRARIES}
-  ${CLANAPP_LIBRARIES}
-  ${CLANGL_LIBRARIES}
-  ${CLANDISPLAY_LIBRARIES}
-  ${CLANGL_LIBRARIES}
-  ${GUILE_LIBRARIES}
-  ${CMAKE_THREAD_LIBS_INIT})
-target_include_directories(colorasion PUBLIC
-  ${CLANCORE_INCLUDE_DIRS}
-  ${CLANAPP_INCLUDE_DIRS}
-  ${CLANGL_INCLUDE_DIRS}
-  ${CLANDISPLAY_INCLUDE_DIRS}
-  ${CLANGL_INCLUDE_DIRS}
-  ${GUILE_INCLUDE_DIRS})
+  PkgConfig::CLANCORE
+  PkgConfig::CLANAPP
+  PkgConfig::CLANGL
+  PkgConfig::CLANDISPLAY
+  PkgConfig::CLANGL
+  PkgConfig::GUILE
+  Threads::Threads)
+
+install_with_wrapper(TARGETS colorasion)
+install(DIRECTORY data/ DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}
+  PATTERN "*~" EXCLUDE)
 
 # EOF #
