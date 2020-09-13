@@ -27,7 +27,8 @@ GameConfig::GameConfig()
   fullscreen = false;
   screen_width = 800;
   screen_height = 600;
-  controller_file ="../data/controller/keyboard.scm";
+  controller_file = {};
+  datadir = ".";
 }
 
 /* EOF */

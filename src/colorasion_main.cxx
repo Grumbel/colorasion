@@ -80,6 +80,7 @@ ColorasionMain::parse_args(int argc, char** argv)
   argp.add_option('c', "controller", "FILE", "Use controller as defined in FILE");
 
   argp.add_group("Misc Options:");
+  argp.add_option('d', "datadir", "DIR", "Set data directory to DIR");
   argp.add_option(debug_flag, "debug", "FILE", "Use controller as defined in FILE");
   argp.add_option('h', "help", "", "Print this help text");
 
@@ -109,6 +110,10 @@ ColorasionMain::parse_args(int argc, char** argv)
 
         case 'c':
           gamecfg->controller_file = argp.get_argument();
+          break;
+
+        case 'd':
+          gamecfg->datadir = argp.get_argument();
           break;
 
         case 'h':
@@ -149,8 +154,13 @@ ColorasionMain::main(int argc, char** argv)
       CL_Display::set_current_window (window);
       CL_Display::clear();
 
-      resources = new CL_ResourceManager("../data/colorasion.xml");
-      InputManager::init(gamecfg->controller_file);
+      resources = new CL_ResourceManager(gamecfg->datadir + "/colorasion.xml");
+
+      std::string controller_file = gamecfg->controller_file.empty() ?
+        gamecfg->datadir + "/controller/keyboard.scm" :
+        gamecfg->controller_file;
+
+      InputManager::init(controller_file);
 
       GameWorld world;
       BallManager balls;

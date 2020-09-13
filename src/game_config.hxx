@@ -35,6 +35,7 @@ public:
   int  screen_height;
 
   std::string controller_file;
+  std::string datadir;
 };
 
 extern GameConfig* gamecfg;
