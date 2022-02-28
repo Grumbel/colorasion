@@ -236,6 +236,8 @@ ColorasionMain::main(int argc, char** argv)
     }
 
   std::cout << "End" << std::endl;
+
+  return 0;
 }
 
 /* EOF */

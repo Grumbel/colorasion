@@ -44,7 +44,7 @@ private:
 public:
   Ball(Colors::Color c, float size_, const FloatVector2d& p, const FloatVector2d& v);
 
-  float set_size(float s) { size = s; }
+  void set_size(float s) { size = s; }
   float get_size() { return size; }
 
   float get_pixel_size() { return 64 * size; }
