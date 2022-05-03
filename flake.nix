@@ -25,9 +25,15 @@
             pname = "colorasion";
             version = "0.2.0";
             src = nixpkgs.lib.cleanSource ./.;
+            postFixup = ''
+                wrapProgram $out/bin/colorasion \
+                  --prefix LIBGL_DRIVERS_PATH ":" "${pkgs.mesa.drivers}/lib/dri" \
+                  --prefix LD_LIBRARY_PATH ":" "${pkgs.mesa.drivers}/lib"
+            '';
             nativeBuildInputs = [
               pkgs.cmake
               pkgs.pkgconfig
+              pkgs.makeWrapper
               tinycmmc.defaultPackage.${system}
             ];
             buildInputs = [
