@@ -10,26 +10,26 @@
         ]
       },
       "locked": {
-        "lastModified": 1645978295,
-        "narHash": "sha256-ZDpfaeEtVCYWXVgoX+G3WIbSHyAfc3jet4zwk/5WcqY=",
+        "lastModified": 1654006334,
+        "narHash": "sha256-kdRlUKffBXNGPbNsaBYGh6jK62vIuN2TCjg6u2u444g=",
         "owner": "grumbel",
         "repo": "clanlib-1.0",
-        "rev": "1dd1e10f549c7c06c8017f537f446f452fc01923",
-        "type": "gitlab"
+        "rev": "393c23cce9f16d4d5097ae8196f2612f93ed99ee",
+        "type": "github"
       },
       "original": {
         "owner": "grumbel",
         "repo": "clanlib-1.0",
-        "type": "gitlab"
+        "type": "github"
       }
     },
     "flake-utils": {
       "locked": {
-        "lastModified": 1649676176,
-        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -72,17 +72,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1651061750,
-        "narHash": "sha256-UHX7IFAcb8dmcZj5W9YE+y5/p7TY2U3o1re84xgM27c=",
+        "lastModified": 1655486534,
+        "narHash": "sha256-JZ6Rte5P36g5qVg7mz/Wd3mtNCIfk2n0+cjUXJ0Fo3A=",
         "owner": "grumbel",
-        "repo": "cmake-modules",
-        "rev": "820041251099f94d107de9a2f16fd23154621cbc",
-        "type": "gitlab"
+        "repo": "tinycmmc",
+        "rev": "32eaa5ba4edacf58d199cc0bb97800ed528f7279",
+        "type": "github"
       },
       "original": {
         "owner": "grumbel",
-        "repo": "cmake-modules",
-        "type": "gitlab"
+        "repo": "tinycmmc",
+        "type": "github"
       }
     }
   },

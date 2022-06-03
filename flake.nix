@@ -3,14 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:grumbel/nixpkgs/fix-guile-3.0";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     flake-utils.url = "github:numtide/flake-utils";
 
-    tinycmmc.url = "gitlab:grumbel/cmake-modules";
+    tinycmmc.url = "github:grumbel/tinycmmc";
     tinycmmc.inputs.flake-utils.follows = "flake-utils";
     tinycmmc.inputs.nixpkgs.follows = "nixpkgs";
 
-    clanlib.url = "gitlab:grumbel/clanlib-1.0";
+    clanlib.url = "github:grumbel/clanlib-1.0";
     clanlib.inputs.nixpkgs.follows = "nixpkgs";
     clanlib.inputs.flake-utils.follows = "flake-utils";
   };
@@ -30,18 +30,20 @@
                   --prefix LIBGL_DRIVERS_PATH ":" "${pkgs.mesa.drivers}/lib/dri" \
                   --prefix LD_LIBRARY_PATH ":" "${pkgs.mesa.drivers}/lib"
             '';
-            nativeBuildInputs = [
-              pkgs.cmake
-              pkgs.pkgconfig
-              pkgs.makeWrapper
-              tinycmmc.defaultPackage.${system}
+            nativeBuildInputs = with pkgs; [
+              cmake
+              pkgconfig
+              makeWrapper
             ];
-            buildInputs = [
+            buildInputs = with pkgs; [
+              guile_1_8
+            ] ++ [
+              tinycmmc.defaultPackage.${system}
               clanlib.defaultPackage.${system}
-              pkgs.guile_1_8
             ];
            };
         };
         defaultPackage = packages.colorasion;
-      });
+      }
+    );
 }
